@@ -26,6 +26,18 @@ class AdminTest(LiveServerTestCase):
         # login credential is correct, redirected to main admin page
         body = self.browser.find_element_by_tag_name('body')
         self.assertIn(u'Site administration', body.text)
+        # user admin can see User link
+        self.assertIn(u'User', body.text)
+        # Profile link is not seen in main admin page since it's stackedinline
+        assert u'Profile' not in body.text
+
+
+        # admin click link user
+        self.browser.find_element_by_link_text('Users').click()
+        # admin should able to see all users
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn(u'userstaff', body.text)
+        self.assertIn(u'usertest', body.text)
 
     def test_admin_site_login_staff(self):
         # user with staff role, go to admin page and entry username and password
@@ -36,6 +48,7 @@ class AdminTest(LiveServerTestCase):
         # login credential is correct, redirected to main admin page
         body = self.browser.find_element_by_tag_name('body')
         self.assertIn(u'Site administration', body.text)
+        self.assertIn(u'You don’t have permission', body.text)
 
     def test_admin_site_login_non_staff(self):
         # user with non staff role, go to admin page and entry username and password
@@ -47,5 +60,3 @@ class AdminTest(LiveServerTestCase):
         body = self.browser.find_element_by_tag_name('body')
         self.assertIn(u'Please enter the correct username and password', 
             body.text)
-
-

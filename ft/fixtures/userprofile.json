@@ -1,0 +1,12 @@
+[
+{
+  "model": "user_details.profile",
+  "pk": 1,
+  "fields": {
+    "user": 3,
+    "phone": "1234",
+    "city": "KL",
+    "country": "Malaysia"
+  }
+}
+]
