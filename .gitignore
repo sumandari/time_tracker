@@ -1,0 +1,13 @@
+# python chache
+.DS_Store
+.pyc
+__pycache__/
+
+# env files
+venv/
+
+# db sqlite
+db.sqlite3
+
+# log file
+*.log
