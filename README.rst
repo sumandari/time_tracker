@@ -13,3 +13,6 @@
 - creare test_user_details.py
 - createsuperuser
 - create fixture
+
+## 23 June 2020
+- [![Run on Repl.it](https://repl.it/badge/github/sumandari/time_tracker)](https://repl.it/github/sumandari/time_tracker)
